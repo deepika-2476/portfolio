@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✨ Donapati Deepika - Interactive Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Montserrat', sans-serif; background-color: #f9f9f9; color: #333; scroll-behavior: smooth; }
+
+  /* Sticky Header */
+  header { position: sticky; top: 0; background: #fff; z-index: 1000; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+  nav { display: flex; justify-content: center; gap: 30px; padding: 15px; }
+  nav a { text-decoration: none; color: #007BFF; font-weight: 600; transition: 0.3s; }
+  nav a:hover { color: #0056b3; }
+
+  /* Hero Section */
+  .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 80vh; text-align: center; background: linear-gradient(to right, #6a11cb, #2575fc); color: #fff; position: relative; overflow: hidden; }
+  .hero h1 { font-size: 3em; margin-bottom: 10px; opacity: 0; transform: translateY(-20px); animation: fadeInUp 1s forwards 0.5s; }
+  .hero p { font-size: 1.2em; margin-bottom: 20px; opacity: 0; transform: translateY(20px); animation: fadeInUp 1s forwards 1s; }
+  @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+  /* Personal Info */
+  .about { padding: 60px 20px; max-width: 1000px; margin: auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+  .about img { border-radius: 15px; width: 250px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer; transition: transform 0.3s; }
+  .about img:hover { transform: scale(1.05); }
+  .about-text { flex: 1; min-width: 250px; }
+  .about-text h2 { color: #007BFF; margin-bottom: 15px; }
+  .facts { margin-top: 20px; display: flex; gap: 15px; flex-wrap: wrap; }
+  .fact { background: #007BFF; color: #fff; padding: 10px 15px; border-radius: 8px; font-weight: 600; }
+
+  /* Gallery Section */
+  .gallery { padding: 60px 20px; max-width: 1200px; margin: auto; text-align: center; }
+  .gallery h2 { color: #007BFF; margin-bottom: 30px; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+  .gallery-grid img { width: 100%; border-radius: 12px; cursor: pointer; transition: transform 0.3s; }
+  .gallery-grid img:hover { transform: scale(1.05); }
+
+  /* Lightbox */
+  .lightbox { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; }
+  .lightbox img { max-width: 90%; max-height: 80%; border-radius: 10px; }
+
+  footer { text-align: center; padding: 30px; background: #fff; box-shadow: 0 -2px 6px rgba(0,0,0,0.1); }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section id="hero" class="hero">
+  <h1>✨ Donapati Deepika</h1>
+  <p>UI/Frontend Developer | Interactive Portfolio</p>
+</section>
+
+<!-- Personal Info Section -->
+<section id="about" class="about">
+  <img src="images/profile.jpg" alt="Profile Image" onclick="openLightbox(this.src)">
+  <div class="about-text">
+    <h2>About Me</h2>
+    <p>Hello! I am Donapati Deepika, a passionate UI/Frontend developer focused on creating interactive and visually engaging web experiences. I love clean designs and smooth animations.</p>
+    <div class="facts">
+      <div class="fact">Languages: HTML, CSS, JS</div>
+      <div class="fact">Current Role: Student</div>
+      <div class="fact">Interests: Design, Animation, Coding</div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="gallery">
+  <h2>Gallery</h2>
+  <div class="gallery-grid">
+    <img src="images/cert1.jpg" alt="Certificate 1" onclick="openLightbox(this.src)">
+    <img src="images/cert2.jpg" alt="Certificate 2" onclick="openLightbox(this.src)">
+    <img src="images/cert3.jpg" alt="Certificate 3" onclick="openLightbox(this.src)">
+
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="">
+</div>
+
+<!-- Footer -->
+<footer>
+  &copy; 2026 Donapati Deepika. All rights reserved.
+</footer>
+
+<script>
+  // Open Lightbox
+  function openLightbox(src) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightbox.style.display = 'flex';
+    lightboxImg.src = src;
+  }
+
+  // Close Lightbox
+  function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
